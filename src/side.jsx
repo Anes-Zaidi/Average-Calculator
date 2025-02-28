@@ -1,9 +1,11 @@
 import React from "react";
 import { useState , useRef , useEffect} from 'react'
 
-function Side({setUni}){
+function Side({setUni , uni , setSemester , semesterKey , setKey }){
     const sideRef = useRef(null)
     const [visibilty, setVisbilty] = useState(false) 
+    let s1 = "s1"
+    let s2 = "s2"
   
     const handleVisibility = () =>{
       setVisbilty(previsibilty => !previsibilty)
@@ -27,11 +29,6 @@ function Side({setUni}){
         <div ref={sideRef} id="sideSection" className={visibilty ? "visibleSide" : "hidden"}>
           <div className="options">
             <div className="uniChose">
-              <label htmlFor="uni">Universty :</label>
-              <select id="uni" onChange={(e)=> setUni(e.target.value)}>
-                <option value="estin">ESTIN</option>
-                <option value="polytec">POLYTEC</option>
-              </select>
             </div>
           </div>
           <div className="sideBtns">

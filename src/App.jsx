@@ -1,10 +1,9 @@
 import { useState , useRef , useEffect} from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Top from './top'
 import MainContent from './mainContent'
 import BottomContent from './bottom'
+import Analytics from './analytics'
 import Side from './side'
 
 function App() {
@@ -26,20 +25,32 @@ function App() {
   }
 
   const [uni , setUni] = useState(estin)
-  const [semester , setSemester] = useState(uni.s2)
-  // const [semester , setSemester] = useState(uni.s)
+  const [semesterKey , setKey] = useState("s1")
+  const [semester , setSemester] = useState(uni.s1)
+  const [average , setAverage] = useState(0)
+  const [value, setValue] = useState(
+      semester ? semester.map((module) => ({
+        module: module[0],
+        tutorials: 0,
+        practicalWork: 0,
+        exam: 0,
+        coefficient: module[1], 
+        note: 0,
+        finalNote: 0,
+      })) : []
+   );
+
+
+  useEffect(()=>{setSemester(uni[semesterKey])},[semester , uni]) 
 
   const handleUniSet = (value)=>{
-    if(value == "polytec"){
-      setUni(polytec)
-    }else{
-      setUni(estin)
-    }
+    setUni(value == "polytec" ? polytec : estin)
   }
   return (
     <>
-      <Top universty = {uni}  semester = {semester}/>
-      <MainContent semester = {semester} setUni = {handleUniSet}/>
+      <Top universty = {uni}  semester = {semester} semesterKey = {semesterKey} setValue={setValue}  setAverage = {setAverage} setUni = {handleUniSet} uni = {uni} setSemester = {setSemester} setKey = {setKey} />
+      <MainContent semester = {semester} setUni = {handleUniSet} uni = {uni} setValue={setValue} value={value} setAverage = {setAverage} average={average}/>
+      <Analytics value = {value}/>
       <BottomContent/>
     </>
   )
