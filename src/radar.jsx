@@ -4,9 +4,9 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 function TDRadar({ value }) {
     return (
         <div id="radar">
-            <h2>Turorials Performance</h2>
+            <h2>Turorials</h2>
             <ResponsiveContainer width="100%" height="100%">
-                <RadarChart outerRadius={90} data={value}>
+                <RadarChart outerRadius="80%" data={value}>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="module" />
                     <PolarRadiusAxis angle={30} domain={[0, 20]} />

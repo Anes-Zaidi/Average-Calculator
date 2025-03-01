@@ -38,7 +38,7 @@ function Analytics({ value }) {
 
   return (
     <div className="analyticsContainer">
-      <h2>Analytics :</h2>
+      <h1>Average Analysis :</h1>
       <div className="BestWorst">
         <div className="best Mcontainer">
           <p id="pp">Best module:</p>
@@ -53,7 +53,9 @@ function Analytics({ value }) {
           <h2>{worst !== Infinity ? worst : "N/A"}</h2>
         </div>
       </div>
-      <ExamGraph value={value} />
+      <div className="examGraph">
+        <ExamGraph value={value} />
+      </div>
       <div className="lower">
           <GradePie value={value}/>
           <TDRadar value={value} />   
