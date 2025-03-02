@@ -29,14 +29,14 @@ function Top({setUni , uni , setSemester , semester , universty , semesterKey , 
         <div className="topLeft">
             <h1 id="logo">Average  Calculator</h1>
              <div className="uniWR">
-                <label htmlFor="uni" id="uniLabel">Universty :</label>
+                <label htmlFor="uni" id="uniLabel">Universty :  </label>
                 <select id="uni" onChange={(e)=>{ setUni(e.target.value);setAverage(0)}}>
                   <option value="estin">ESTIN</option>
                   <option value="polytec">POLYTEC</option>
                 </select>
               </div>
             <div className="uniWR">
-                <label htmlFor="uni" id="uniLabel">Semester :</label>
+                <label htmlFor="uni" id="uniLabel">Semester :  </label>
                 <select id="uni" value={semesterKey} onChange={(e)=> {const newKey = e.target.value ; setKey(newKey) ; setSemester(uni[newKey]) ; setAverage(0)}}>
                   <option value = {s1}>S1</option>
                   <option value = {s2}>S2</option>
