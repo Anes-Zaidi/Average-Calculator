@@ -38,7 +38,7 @@ function Analytics({ value }) {
 
   return (
     <div className="analyticsContainer">
-      <h1>Average Analysis :</h1>
+      <h1 id="Atitle">Average Analysis :</h1>
       <div className="BestWorst">
         <div className="best Mcontainer">
           <p id="pp">Best module:</p>

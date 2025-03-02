@@ -1,6 +1,7 @@
 import React from "react";
 import './App.css'
 import Semester from "./side";
+import {FolderArchive , Save , RotateCcw} from 'lucide-react'
 
 function Top({setUni , uni , setSemester , semester , universty , semesterKey , setValue , setAverage , setKey}){
     function handleReset(){
@@ -44,8 +45,9 @@ function Top({setUni , uni , setSemester , semester , universty , semesterKey , 
         </div>
 
         <div className="topRight">
-            <button onClick={handleReset}>Reset</button>
-            <button>Save</button>
+            <button onClick={handleReset}><RotateCcw id="icon"/> Reset</button>
+            <button><Save id="icon" /> Save</button>
+            <button><FolderArchive id="icon" /> Archive</button>
         </div>
 
         </header>
@@ -53,3 +55,4 @@ function Top({setUni , uni , setSemester , semester , universty , semesterKey , 
 }
 
 export default Top;
+
