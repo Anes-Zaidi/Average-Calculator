@@ -1,10 +1,9 @@
 import { useState , useRef , useEffect} from 'react'
 import './App.css'
-import Top from './top'
-import MainContent from './mainContent'
-import BottomContent from './bottom'
-import Analytics from './analytics'
-import Side from './side'
+import Top from './topComponents/top.jsx'
+import MainContent from './mainContetnt/mainContent.jsx'
+import BottomContent from './bottomContent/bottom.jsx'
+import Analytics from './/mainContetnt/analytics.jsx'
 
 function App() {
 

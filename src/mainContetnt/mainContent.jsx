@@ -1,6 +1,5 @@
 import React, {useRef , useEffect, useState } from "react";
-import "./App.css";
-import Side from "./side";
+import Side from "../side";
 
 function MainContent({semester , uni , setValue , value , setAverage ,average}) {
 

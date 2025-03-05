@@ -1,6 +1,4 @@
 import React from "react";
-import './App.css'
-import Semester from "./side";
 import {FolderArchive , Save , RotateCcw} from 'lucide-react'
 
 function Top({setUni , uni , setSemester , semester , universty , semesterKey , setValue , setAverage , setKey}){
