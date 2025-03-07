@@ -1,0 +1,50 @@
+/*---------------- Top  ------------------------- */
+.topContent{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 10px 10px;
+}
+
+.topRight{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end ;
+    align-items: center;
+}
+.topRight button{
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.topLeft{
+    width: 50%;
+    padding: 5px 20px;
+}
+
+
+#icon{
+    font-size: 5em;
+}
+
+#logo{
+    color: var(--font-primary);
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+#uniLabel{
+    color: var(--font-primary);
+}
+.uniWR select{
+    padding: 3px;
+    border-radius: 5px;
+}
+
+#uni{
+    height: 4vh;
+    margin-bottom: 5px;
+}

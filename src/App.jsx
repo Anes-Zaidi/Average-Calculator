@@ -4,8 +4,11 @@ import Top from './topComponents/top.jsx'
 import MainContent from './mainContetnt/mainContent.jsx'
 import BottomContent from './bottomContent/bottom.jsx'
 import Analytics from './/mainContetnt/analytics.jsx'
+import Archive from './archive.jsx'
 
 function App() {
+
+  // TODO add enscs
 
   const estin  = {
     name : "ESTIN",
@@ -29,6 +32,7 @@ function App() {
   const [average , setAverage] = useState(0)
   const [value, setValue] = useState(
       semester ? semester.map((module) => ({
+        universty : uni.name,
         module: module[0],
         tutorials: 0,
         practicalWork: 0,
@@ -38,6 +42,9 @@ function App() {
         finalNote: 0,
       })) : []
    );
+  const [isClosed , setClose] = useState(true)
+  const [archive , setArchive] = useState([])
+  const archvRef = useRef(null)
 
 
   useEffect(()=>{setSemester(uni[semesterKey])},[semester , uni]) 
@@ -47,7 +54,8 @@ function App() {
   }
   return (
     <>
-      <Top universty = {uni}  semester = {semester} semesterKey = {semesterKey} setValue={setValue}  setAverage = {setAverage} setUni = {handleUniSet} uni = {uni} setSemester = {setSemester} setKey = {setKey} />
+      <Top universty = {uni}  semester = {semester} semesterKey = {semesterKey} setValue={setValue}  setAverage = {setAverage} setUni = {handleUniSet} uni = {uni} setSemester = {setSemester} setKey = {setKey} isClosed={isClosed} setClose = {setClose} setArchive={setArchive} archvRef={archvRef} archive = {archive} value={value}/>
+      <Archive isClosed = {isClosed} setClose = {setClose} archive = {archive} setArchive ={setArchive} archvRef={archvRef} />
       <MainContent semester = {semester} setUni = {handleUniSet} uni = {uni} setValue={setValue} value={value} setAverage = {setAverage} average={average}/>
       <Analytics value = {value}/>
       <BottomContent/>

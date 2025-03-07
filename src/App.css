@@ -2,7 +2,7 @@
     margin: 0;
     box-sizing: border-box;
     padding: 0;
-    font-family: monospace;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 :root{
     --primary : #1a1a1a ;
@@ -18,269 +18,66 @@ body{
 #root{
     width: 100%;
 }
-/*---------------- Top  ------------------------- */
-.topContent{
+
+/* --------------------------------Archive -------------------------- */
+
+.archiveContainer{
+    width: 100%;
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: auto;
-    padding: 10px 10px;
 }
-
-.topRight{
-    width: 50%;
-    display: flex;
-    justify-content: flex-end ;
-    align-items: center;
-}
-.topRight button{
-    height: 8vh;
-    display: flex;
-    gap: 5px;
-    align-items: center
-}
-
-.topLeft{
-    width: 50%;
-    padding: 5px 10px;
-}
-
-#icon{
-    font-size: 5em;
-}
-
-#logo{
-    color: var(--font-primary);
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-#uniLabel{
-    color: var(--font-primary);
-}
-.uniWR select{
-    padding: 3px;
-    border-radius: 5px;
-}
-
-#uni{
-    height: 4vh;
-}
-
-/*----------------------- Main -------------------------------------------------- */
-.mainContent{
-    height: auto;
-    width: 100%;
-}
-
-.noteWraper{
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-
-.noteContainer{
-    width: 90%;
-    height: auto;
-    background-color: var(--secondary);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.Archive{
+    width: 70%;
+    background-color: var(--primary);
+    min-height: 30vh;
+    position: fixed;
     border-radius: 10px;
-    padding: 20px;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    border: 1px solid white;
+    transform: translate(-50% , -50%);
+    transition: transform 0.5s;
 }
 
-.NT{
+.ArchTop{
     display: flex;
-    border-radius: 8px;
-    width: 100%;
-    justify-content: space-around;
-    background-color: var(--primary);
-    padding: 2px;
-    margin-bottom: 10px;
-    
-}
-
-.NT p{
-    font-size: 1.5em;
-    font-weight: 600;
-}
-
-.modules{
-    width: 100%;
-    height: auto;
-    
-}
-.ab{
-    width: 100%;
-    height: 13vh;
-    display: flex;
-    justify-content: space-around;
-    padding: ;
+    justify-content: space-between;
     align-items: center;
-    background-color: var(--secondary);
+    padding: 10px 20px;
 }
 
-.ab h3{
-    width: 9%;
+.archTopRight{
+    width: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
 }
 
-.ab:hover{
-    background-color: var(--secondary-hover);
-}
-.input{
-    width: 7%;
-    height: 7vh;
-    padding: 10px 10px;
-    text-align: center;
-    font-weight: 600;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--primary);
-}
-
-#checkPw{
-    background-color: var(--primary);
-}
-
-.mainBottom{
+.archTopRight div{
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.archive-element-container{
     width: 100%;
-}
-
-
-.avg{
-    width: 50%;
-    justify-self: center;
-    height: 20vh;
-    background-color: var(--primary);
-    padding: 5px 10px;
-    border-radius: 8px;
-
-}
-
-#average{
-    text-align: center;
-}
-
-.avgBarContainer{
-    width: 80%;
-    justify-self: center;
-    height: 1.5vh;
-    background-color: var(--secondary);
-    border-radius: 10px;
+    display: flex;
+    justify-content: center;
     margin-top: 10px;
-    display: flex;
-    align-items: flex-start;
 }
 
-.avgBar{
-    transition: background 0.3s , width 0.3s ;
-    height: 1.5vh;
-    border-radius: 10px;
-}
-   
-/* -------------------Analytics side -------------------------------------- */
-.analyticsContainer{
-    width: 90%;
-    height: auto;
+.archive-element{
+    width: 95%;
     background-color: var(--secondary);
-    margin-top: 20px;
+    display: flex;
     border-radius: 10px;
-    justify-self: center;
-    padding: 20px 15px;
-    overflow: hidden;
-}
-
-#Atitle{
-    margin-bottom: 10px;
-    font-size: 2em;
-    font-weight: 1200;
-}
-
-.BestWorst{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
-
-}
-
-.Mcontainer{
-    width: 40%;
-    height: 20vh;
-    border-radius: 10px;
-    background-color: var(--primary);
-    padding: 10px 10px;
-}
-
-.Mcontainer h3 , h2{
-    text-align: center;
-    font-weight: 700;
-}
-
-#pp{
-    font-size: 1.2em;
-    font-weight: 600;
-}
-#graph{
-    width: 85%;
-    height: 33vh;
-}
-#radar{
-    width: 100%;
-    height: 30vh;   
-}
-#pie{
-    width: 100%;
-    height: 30vh;
-}
-
-.lower{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    padding: 15px;
-}
-
-.examGraph{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-/* --------------------------- Bottom ------------------------------------ */
-
-.bottomContent{
-    display: flex;
     height: 8vh;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
 }
 
-.bottomRight{
-    display: flex;
-    justify-content: center;
-}
-
-
-
-/* -----------------Animations ------------------------- */
-
-.visibleSide{
-    transform: translateX(0);
-}
-
-.hidden{
-    transform: translateX(-500px);
-}
-
-@keyframes slideLeft {
-    to{left :0}
-}
 
 @media screen and (max-width : 600px) {
     .topRight{

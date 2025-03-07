@@ -1,7 +1,11 @@
 import React from "react";
+import { useRef} from "react";
+import Archive from "../archive";
 import {FolderArchive , Save , RotateCcw} from 'lucide-react'
+import "./top.css"
 
-function Top({setUni , uni , setSemester , semester , universty , semesterKey , setValue , setAverage , setKey}){
+function Top({setUni , uni , setSemester , semester , universty , semesterKey , setValue , setAverage , setKey , isClosed ,setClose , archvRef , archive , value , setArchive}){
+
     function handleReset(){
         let userConfimed = window.confirm("Do you want to reset ?")
         if(userConfimed){
@@ -19,6 +23,23 @@ function Top({setUni , uni , setSemester , semester , universty , semesterKey , 
             setAverage(0)
         }
     }
+
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = String(now.getMonth() + 1).padStart(2 , "0")
+    const day = String(now.getDate()).padStart(2 , "0")
+    const hours = String(now.getHours() + 1).padStart(2 , "0")
+    const munites = String(now.getMinutes()).padStart(2 , "0")
+
+    const formattedTime = `${year}-${month}-${day} , ${hours}:${munites}`
+    const handleModalVisibility = ()=>{
+      setClose(prev => !prev)
+    }
+    const handleSave = () =>{
+      let tempArr = [ {uni : uni.name} , {date : formattedTime} , ...value ]
+      setArchive((prevArchive)=>[...prevArchive , tempArr])
+    }
+
     let s1 = "s1"
     let s2 = "s2"
     return(
@@ -44,8 +65,12 @@ function Top({setUni , uni , setSemester , semester , universty , semesterKey , 
 
         <div className="topRight">
             <button onClick={handleReset}><RotateCcw id="icon"/> Reset</button>
-            <button><Save id="icon" /> Save</button>
-            <button><FolderArchive id="icon" /> Archive</button>
+            <button onClick={handleSave}><Save id="icon"/> Save</button>
+            <button ref={archvRef} onClick={()=>{
+              if(isClosed){
+                handleModalVisibility()
+              }
+            }}><FolderArchive id="icon" /> Archive</button>
         </div>
 
         </header>

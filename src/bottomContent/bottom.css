@@ -1,0 +1,11 @@
+.bottomContent{
+    display: flex;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottomRight{
+    display: flex;
+    justify-content: center;
+}

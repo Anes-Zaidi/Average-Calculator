@@ -1,6 +1,6 @@
 import React, {useRef , useEffect, useState } from "react";
 import Side from "../side";
-
+import "./mainContent.css"
 function MainContent({semester , uni , setValue , value , setAverage ,average}) {
 
    
@@ -43,22 +43,30 @@ function MainContent({semester , uni , setValue , value , setAverage ,average}) 
     setValue((prevsValues) =>{
       const updatedValues = prevsValues.map((item, i) => {
         if (i === index) {
+          let university = item.universty
           const tutorials = field === "tutorials" ? parseFloat(newValue) || 0 : parseFloat(item.tutorials);
           const practicalWork = parseFloat(item.practicalWork) || 0;
           const exam = field === "exam" ? parseFloat(newValue) || 0 : parseFloat(item.exam);
           const coefficient = field === "coefficient" ? parseFloat(newValue) || 0 : parseFloat(item.coefficient);
           let note = 0
           let finalNote = 0
-    
+
+          // TODO state problem in PW
           if(uni.name == "ESTIN"){
+            university = "ESTIN"
             if(practicalWork == 0){
               note = (tutorials  * 0.4 + exam * 0.6);
               finalNote = note * coefficient;
-            }else{
+            }else if(practicalWork != 0 && tutorials == 0){
+              note = (practicalWork  * 0.4 + exam * 0.6); 
+              finalNote = note * coefficient;
+            }
+            else{
               note = ((tutorials + practicalWork) / 2  * 0.4 + exam * 0.6);
               finalNote = note * coefficient;
             }
           }else if(uni.name == "POLYTEC"){
+            university = "POLYTEC"
             if(practicalWork == 0){
               note = (tutorials  * 0.5 + exam * 0.5);
               finalNote = note * coefficient;
@@ -118,7 +126,7 @@ function MainContent({semester , uni , setValue , value , setAverage ,average}) 
                 <h3>{module.module}</h3>
                 <input type="number" value={module.tutorials}  onChange={(e)=>{handleValueChange(index, "tutorials" ,e.target.value)}} className="input" step={0.25} max={20} min={0}/>
                 <input type="number" value={module.practicalWork} ref={checkboxRef} onChange={(e)=>{handleValueChange(index, "practicalWork" , e.target.value)}} className="input" step={0.25} max={20} min={0} disabled = {notChecked[index]}/>
-                <input type="checkbox" id={`checkPw-${index}`} checked = {!notChecked[index]} onChange = {()=>handleCheckbox(index)} />
+                <input type="checkbox" id={`checkPw-${index}`} checked = {!notChecked[index]} onChange = {()=>handleCheckbox(index)} className="check"/>
                 <input type="number" value={module.exam} onChange={(e)=>{handleValueChange(index, "exam" , e.target.value)}} className="input" step={0.25} max={20} min={0}/>
                 <input type="number" value={module.coefficient} onChange={(e)=>{handleValueChange(index, "coefficient" , e.target.value)}} className="input" step={1} max={20} min={0}/>
                 <h3>{module.note}</h3>
