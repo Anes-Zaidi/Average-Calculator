@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ExamGraph from "./graph";
 import GradePie from "./pie";
 import TDRadar from "./radar";
+import {ChartColumn} from "lucide-react"
 
 function Analytics({ value }) {
   const [best, setBest] = useState(-Infinity);
@@ -38,7 +39,9 @@ function Analytics({ value }) {
 
   return (
     <div className="analyticsContainer">
-      <h1 id="Atitle">Average Analysis :</h1>
+      <h1 id="Atitle"> Average Analysis   <ChartColumn /> </h1>
+      <hr />
+      <hr />
       <div className="BestWorst">
         <div className="best Mcontainer">
           <p id="pp">Best module:</p>

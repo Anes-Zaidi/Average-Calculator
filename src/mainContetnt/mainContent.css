@@ -2,17 +2,20 @@
 .mainContent{
     height: auto;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .noteWraper{
     display: flex;
     justify-content: center;
+    width: 90%;
     position: relative;
 }
 
 
 .noteContainer{
-    width: 90%;
+    min-width: 100%;
     height: auto;
     background-color: var(--secondary);
     display: flex;
@@ -20,12 +23,13 @@
     align-items: center;
     border-radius: 10px;
     padding: 20px;
+    overflow-x: scroll;
 }
 
 .NT{
     display: flex;
     border-radius: 8px;
-    width: 100%;
+    width: 1050px;
     justify-content: space-around;
     background-color: var(--primary);
     padding: 2px;
@@ -39,7 +43,7 @@
 }
 
 .modules{
-    width: 100%;
+    width: 1050px;
     height: auto;
     
 }
@@ -48,9 +52,9 @@
     height: 13vh;
     display: flex;
     justify-content: space-around;
-    padding: ;
     align-items: center;
     background-color: var(--secondary);
+    transition: background 0.25s;
 }
 
 input[type = "checkbox"]{
@@ -89,9 +93,10 @@ input[type = "checkbox"]{
 
 
 .avg{
+    margin-top: 10px;
     width: 50%;
     justify-self: center;
-    height: 20vh;
+    height: 21vh;
     background-color: var(--primary);
     padding: 5px 10px;
     border-radius: 8px;
@@ -138,6 +143,7 @@ input[type = "checkbox"]{
 }
 
 .BestWorst{
+    margin-top: 20px;
     width: 100%;
     height: auto;
     display: flex;
@@ -148,7 +154,7 @@ input[type = "checkbox"]{
 
 .Mcontainer{
     width: 40%;
-    height: 20vh;
+    height: 23vh;
     border-radius: 10px;
     background-color: var(--primary);
     padding: 10px 10px;
@@ -188,4 +194,10 @@ input[type = "checkbox"]{
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+#Atitle{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

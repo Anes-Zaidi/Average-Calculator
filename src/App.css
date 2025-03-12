@@ -1,22 +1,31 @@
-*{
+/* Global Reset */
+* {
     margin: 0;
-    box-sizing: border-box;
     padding: 0;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-:root{
-    --primary : #1a1a1a ;
-    --secondary : rgb(39, 39, 39);
-    --secondary-hover : rgb(45, 45, 45);
-    --font-primary : white;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-body{
+/* Theme Variables */
+:root {
+    --primary : #2A3439; /* Deep Blue */
+    --secondary : #1a1a1a ; /* Darker Blue */
+    --secondary-hover: #2A3439; /* Lighter Blue on hover */
+    --font-primary: white;
+    --border-radius: 10px;
+}
+
+body {
     background-color: var(--primary);
+    color: var(--font-primary);
     transition: background 0.8s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #root{
-    width: 100%;
+    width: 100%;    --primary : #2A3439;
+    --secondary : #1a1a1a ; 
 }
 
 /* --------------------------------Archive -------------------------- */
@@ -29,7 +38,8 @@ body{
 .Archive{
     width: 70%;
     background-color: var(--primary);
-    min-height: 30vh;
+    max-height: 80vh;
+    overflow-y: scroll;
     position: fixed;
     border-radius: 10px;
     z-index: 1;
@@ -37,22 +47,31 @@ body{
     left: 50%;
     border: 1px solid white;
     transform: translate(-50% , -50%);
+    padding: 15px 10px;
     transition: transform 0.5s;
 }
 
 .ArchTop{
     display: flex;
     justify-content: space-between;
+    height: 8vh;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0px 20px;
+    margin-bottom: 10px;
 }
 
 .archTopRight{
-    width: 13%;
+    width: 30%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
+    justify-content: flex-end;
+}
+.archTopRight button{
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 20px;
 }
 
 .archTopRight div{
@@ -76,6 +95,59 @@ body{
     height: 8vh;
     justify-content: space-around;
     align-items: center;
+    cursor: pointer;
+    transition: background 0.25s;
+}
+
+.archive-element:hover{
+    background-color: var(--secondary-hover);
+}
+
+.archive-empty{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#delete{
+    cursor: pointer;
+    transition: color 0.25s;
+}
+
+#delete:hover{
+    color: red;
+}
+
+#deleteAll{
+    cursor: pointer;
+    transition: color 0.25s , border 0.25s;
+}
+
+#deleteAll:hover{
+    color: red;
+    border: 1px solid red;
+}
+
+#archT{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-hover);
+    border-radius: var(--border-radius);
 }
 
 

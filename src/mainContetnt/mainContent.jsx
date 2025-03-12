@@ -1,10 +1,7 @@
 import React, {useRef , useEffect, useState } from "react";
-import Side from "../side";
 import "./mainContent.css"
-function MainContent({semester , uni , setValue , value , setAverage ,average}) {
+function MainContent({semester , uni , setValue , value , setAverage ,average , handleValueChange}) {
 
-   
-  const [coefficeintSum, setCoefSum] = useState(semester.reduce((acc, item) => acc + item[1], 0));
   const [notChecked , setNChecked ] = useState(value.map(()=>true))
   const [width , setWidth] = useState(0)
   const [bg , setBG] = useState("")
@@ -36,66 +33,6 @@ function MainContent({semester , uni , setValue , value , setAverage ,average}) 
       }
     })
   },[average])
-  
-
-
-  const handleValueChange = (index, field, newValue) => { 
-    setValue((prevsValues) =>{
-      const updatedValues = prevsValues.map((item, i) => {
-        if (i === index) {
-          let university = item.universty
-          const tutorials = field === "tutorials" ? parseFloat(newValue) || 0 : parseFloat(item.tutorials);
-          const practicalWork = parseFloat(item.practicalWork) || 0;
-          const exam = field === "exam" ? parseFloat(newValue) || 0 : parseFloat(item.exam);
-          const coefficient = field === "coefficient" ? parseFloat(newValue) || 0 : parseFloat(item.coefficient);
-          let note = 0
-          let finalNote = 0
-
-          // TODO state problem in PW
-          if(uni.name == "ESTIN"){
-            university = "ESTIN"
-            if(practicalWork == 0){
-              note = (tutorials  * 0.4 + exam * 0.6);
-              finalNote = note * coefficient;
-            }else if(practicalWork != 0 && tutorials == 0){
-              note = (practicalWork  * 0.4 + exam * 0.6); 
-              finalNote = note * coefficient;
-            }
-            else{
-              note = ((tutorials + practicalWork) / 2  * 0.4 + exam * 0.6);
-              finalNote = note * coefficient;
-            }
-          }else if(uni.name == "POLYTEC"){
-            university = "POLYTEC"
-            if(practicalWork == 0){
-              note = (tutorials  * 0.5 + exam * 0.5);
-              finalNote = note * coefficient;
-            }
-            else{
-              note = (tutorials  * 0.3 + practicalWork * 0.3 + exam * 0.4);
-              finalNote = note * coefficient;
-            }
-          }
-
-          return {
-            ...item,
-            [field]: newValue,
-            note: note.toFixed(2),
-            finalNote: finalNote.toFixed(2),
-            coefficient : coefficient,
-          };
-        }
-        return item;
-      })
-
-      const Fsum = updatedValues.reduce((sum, item) => sum + parseFloat(item.finalNote) , 0);
-      const Csum = updatedValues.reduce((sum, item) => sum + parseFloat(item.coefficient), 0)
-      
-      setCoefSum(Csum)
-      setAverage(Fsum / Csum)
-      return updatedValues
-    });
-  }
 
   const handleCheckbox = (index) => {
     setNChecked((prevChecked) => {
@@ -104,7 +41,6 @@ function MainContent({semester , uni , setValue , value , setAverage ,average}) 
       return updatedChecked;
     });
   };
-
 
   return (
     <div className="mainContent">
