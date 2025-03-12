@@ -1,6 +1,4 @@
 import { useState , useRef , useEffect} from 'react'
-import {setDoc , doc} from "firebase/firestore"
-import {db} from "./firebase"
 
 import './App.css'
 import Top from './topComponents/top.jsx'
